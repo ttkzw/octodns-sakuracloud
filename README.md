@@ -1,5 +1,3 @@
-TODO: Review this README and add or modify as necessary.
-
 ## SakuraCloud provider for octoDNS
 
 An [octoDNS](https://github.com/octodns/octodns/) provider that targets [SakuraCloud](https://github.com/ttkzw/octodns-sakuracloud).
@@ -9,7 +7,7 @@ An [octoDNS](https://github.com/octodns/octodns/) provider that targets [SakuraC
 #### Command line
 
 ```
-pip install octodns-sakuracloud
+pip install git+https://github.com/ttkzw/octodns-sakuracloud.git
 ```
 
 #### requirements.txt/setup.py
@@ -38,18 +36,43 @@ octodns-sakuracloud==0.0.1
 providers:
   sakuracloud:
     class: octodns_sakuracloud.SakuraCloudProvider
-    # TODO
+    # The access token for an API key
+    access_token:
+    # The access token secret for an API key
+    access_token_secret:
+    # The endpoint for APIs
+    # endpoint:
+    #
+    # The `endpoint` is optional. If omitted, the default endpoint is used.
+    #
+    # Endpoints are as follows:
+    #
+    # - Ishikari Zone 1
+    #   - https://secure.sakura.ad.jp/cloud/zone/is1a/api/cloud/1.1
+    # - Ishikari Zone 2
+    #   - https://secure.sakura.ad.jp/cloud/zone/is1b/api/cloud/1.1
+    # - Tokyo Zone 1
+    #   - https://secure.sakura.ad.jp/cloud/zone/tk1a/api/cloud/1.1
+    # - Tokyo Zone 2
+    #   - https://secure.sakura.ad.jp/cloud/zone/tk1b/api/cloud/1.1
+    #
+    # DNS service is global, so you can use any of them.
+    # The default is the Ishikari Zone 1.
 ```
 
 ### Support Information
 
 #### Records
 
-TODO: All octoDNS record types are supported.
+SakuraCloudProvider supports A, AAAA, ALIAS, CAA, CNAME, HTTPS, MX, NS, PTR, SRV, SVCB, and TXT
+
+#### Root NS records
+
+SakuraCloudProvider does not supports root NS record management.
 
 #### Dynamic
 
-TODO: SakuraCloudProvider does not support dynamic records.
+SakuraCloudProvider does not support dynamic records.
 
 ### Development
 
