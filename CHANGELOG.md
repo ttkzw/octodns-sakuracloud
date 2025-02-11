@@ -1,11 +1,3 @@
-## TODO: v0.0.1 - 20??-??-?? - Moving
+## v0.0.1 - 2025-02-16
 
-#### Nothworthy Changes
-
-* Initial extraction of SakuraCloudProvider from octoDNS core
-
-TODO: anything else
-
-#### Stuff
-
-TODO: anything else
+* PoC for SAKURA CLOUD.
