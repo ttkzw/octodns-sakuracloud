@@ -1,6 +1,4 @@
-TODO: Review this README and add or modify as necessary.
-
-## SakuraCloud provider for octoDNS
+## SAKURA CLOUD provider for octoDNS
 
 An [octoDNS](https://github.com/octodns/octodns/) provider that targets [SakuraCloud](https://github.com/ttkzw/octodns-sakuracloud).
 
@@ -9,7 +7,7 @@ An [octoDNS](https://github.com/octodns/octodns/) provider that targets [SakuraC
 #### Command line
 
 ```
-pip install octodns-sakuracloud
+pip install git+https://github.com/ttkzw/octodns-sakuracloud.git
 ```
 
 #### requirements.txt/setup.py
@@ -38,21 +36,26 @@ octodns-sakuracloud==0.0.1
 providers:
   sakuracloud:
     class: octodns_sakuracloud.SakuraCloudProvider
-    # TODO
+    # The access token for an API key
+    access_token: env/SAKURACLOUD_ACCESS_TOKEN
+    # The access token secret for an API key
+    access_token_secret: env/SAKURACLOUD_ACCESS_TOKEN_SECRET
 ```
 
 ### Support Information
 
 #### Records
 
-TODO: All octoDNS record types are supported.
+SakuraCloudProvider supports A, AAAA, ALIAS, CAA, CNAME, HTTPS, MX, NS, PTR, SRV, SVCB, and TXT
+
+#### Root NS records
+
+SakuraCloudProvider does not supports root NS record management.
 
 #### Dynamic
 
-TODO: SakuraCloudProvider does not support dynamic records.
+SakuraCloudProvider does not support dynamic records.
 
 ### Development
 
 See the [/script/](/script/) directory for some tools to help with the development process. They generally follow the [Script to rule them all](https://github.com/github/scripts-to-rule-them-all) pattern. Most useful is `./script/bootstrap` which will create a venv and install both the runtime and development related requirements. It will also hook up a pre-commit hook that covers most of what's run by CI.
-
-TODO: any provider specific setup, a docker compose to run things locally etc?
